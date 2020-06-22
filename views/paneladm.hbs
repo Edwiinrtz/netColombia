@@ -1,44 +1,29 @@
 {{>header}}
-<h1>Panel adminnistración</h1>
-<ul>
-	<li><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Añadir producto
-</button></li>
-	<li><a href="#">ver todos los productos</a>	</li>
-</ul>
+<nav id="navegador">
+	<button type="button" class="btn" data-toggle="modal" data-target="#exampleModal"><img src="images/anadir.png" style="width:32px;"></button>
+	{{>adding}}
 
+	<form method="post" action="/logout">
+		<input type="submit" name="logout" class="btn btn-danger" value="logout">
+	</form>
 
+</nav>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-	<div class="modal-dialog">
-    	<div class="modal-content">
-      		<div class="modal-header">
-        		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        		  <span aria-hidden="true">&times;</span>
-        		</button>
-      		</div>
-      		<form method="post" action="add" class="form-gruop">
-	      		<div class="modal-body">
-	      		  	<input type="text" name="nombre" placeholder="Nombre" class="form-control"><br>
-	      		  	<input type="number" name="precio" placeholder="$$$" class="form-control"><br>
-	      		  	<input type="number" name="duracion" placeholder="duracion" class="form-control"><br>
-	      		  	<textarea placeholder="Descripción" name="descripcion" class="form-control"></textarea><br>
-	      		  	<input type="text" name="link" placeholder="link del archivo">
-	      		</div>
-	      		<div class="modal-footer">
-	      		  	<button type="submit" class="btn btn-primary">Añadir</button>
-	      		</div>
-      		</form>
-    	</div>
-  	</div>
-</div>
-
-
-
-
-
-
-
-
+<section id="panel">
+	<section id="capa">
+		{{#each	produc}}
+			<section class="productos">
+				<section class="card">
+						<img src="https://www.redeszone.net/app/uploads-redeszone.net/2019/04/Foto-centro-servidores.jpg">
+						<section class="card-body">
+							<h1>{{this.nombre}}</h1>
+						</section>
+						<section class="card-footer">
+							<button class="btn">Editar</button>
+						</section>
+					</section>
+			</section>	
+		{{/each}}
+	</section>
+</section>
 {{>footer}}

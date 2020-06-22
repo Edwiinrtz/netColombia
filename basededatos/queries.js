@@ -22,10 +22,14 @@ añadir_producto=(informacion)=>{
 		}
 	})
 }
+productos=()=>{
+	return producto.find()
+}
 
 
 
 module.exports={
 	login,
-	añadir_producto
+	añadir_producto,
+	productos
 }
