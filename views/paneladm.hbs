@@ -9,6 +9,12 @@
 
 </nav>
 
+<ul id="filtro_adm">
+	<li><a href="/disponible_adm">Disponible</a></li>
+	<li><a href="/vendidos">Vendidos</a></li>
+</ul>
+
+
 <section id="panel">
 	<section id="capa">
 		{{#each	produc}}
@@ -19,11 +25,17 @@
 							<h1>{{this.nombre}}</h1>
 						</section>
 						<section class="card-footer">
-							<button class="btn">Editar</button>
+							<form method="post" action="/editar">
+								<input type="submit" name="" class="btn" value="Editar">
+								<input type="hidden" name="_id" value="{{this._id}}">
+							</form>
 						</section>
 					</section>
 			</section>	
 		{{/each}}
 	</section>
 </section>
+
+
+
 {{>footer}}

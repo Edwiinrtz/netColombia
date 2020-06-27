@@ -7,7 +7,7 @@ const producto_schema = new schema({
 	duracion:Number,
 	descripcion:String,
 	link:String,
-	disponible:Boolean
+	estado:Number
 })
 
 const usuarios_schema = new schema({

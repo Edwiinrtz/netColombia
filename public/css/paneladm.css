@@ -24,4 +24,14 @@
 	background-color: gray;
 	display: inline-block;
 }
-
+#filtro_adm{
+	width: 80%;
+	position: relative;
+	left: 10%;
+	text-decoration: none;
+}
+#filtro_adm li{
+	display: inline-block;
+	color: black;
+	list-style:none;
+}

@@ -91,7 +91,16 @@ iniciar=(req,res,datos)=>{
 
 
 app.get("/",(req,res)=>{
-	res.render("index")
+	query = productos()
+	query.exec((err,success)=>{
+		if (err) {
+			console.log(err)
+		}else{
+			res.render("index",{
+				product: success
+			})
+		}
+	})
 })
 
 app.get("/adm",urlencoder,(req,res)=>{

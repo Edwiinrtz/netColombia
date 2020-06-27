@@ -1,0 +1,22 @@
+{{>header}}
+	<div style="width:60%;position:relative; left:20%;">
+		<section class="card">
+			<section class="card-body">
+				<h2 class="car-title">{{receta.titulo}}</h2>
+				<h5 style="color:grey;" class="car-subtitle">{{receta.autor}}</h5>
+				<ul>
+					{{#each receta.ingredientes}}
+						<li>{{this}}</li>
+					{{/each}}
+				</ul>
+				<p class="procedimiento">
+					{{#each receta.procedimiento}}
+						{{this}}<br>
+					{{/each}} 
+				</p>
+				<a href="/recetas" class="card-link">Volver</a>
+				<button type="button" class="btn" data-toggle="modal" data-target="#editarModal" style="color:Blue;">Editar</button>
+			</section>
+		</section>
+	</div>
+{{>footer}}
