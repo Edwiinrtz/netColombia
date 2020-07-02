@@ -26,10 +26,22 @@ productos=()=>{
 	return producto.find()
 }
 
-
+productos_carrito=(lista)=>{
+	productos_compra = []
+	console.log(lista)
+	lista.map(id =>{
+		producto.findOne({_id:id},(err,info_prd)=>{
+			console.log(info_prd)
+			productos_compra.push(info_prd)
+		})
+	})
+	return productos_compra
+	
+}
 
 module.exports={
 	login,
 	añadir_producto,
-	productos
+	productos,
+	productos_carrito
 }

@@ -28,7 +28,7 @@
 	display: inline-block;
 	margin:2%; 
 }
-.pdrt img{
+#img_pdrt{
 	width: 100%;
 	height: 50%;
 }
@@ -46,7 +46,10 @@
 	left: 92%;
 	width:3%;
 }
-#carrito img{
+#carrito:hover{
+	cursor: pointer;
+}
+#carro{
 	width: 100%;
 }
 #carrito p{

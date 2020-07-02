@@ -1,16 +1,12 @@
 {{>header}}
 
-<section id="header">
-<h1>Internet Colombia</h1>
-</section>
-
 
 <section id="body">
 	<h3>productos</h3>
 	<section>
 		{{#each product}}
 			<div class="pdrt">
-				<img src="https://res.cloudinary.com/dk2ghb1pg/image/upload/v1535301733/bxoyfrkj4zwtbsewcryf.png">
+				<img id="img_pdrt" src="https://res.cloudinary.com/dk2ghb1pg/image/upload/v1535301733/bxoyfrkj4zwtbsewcryf.png">
 				<section id="info">
 					<p>{{this.nombre}}</p>
 					<p>{{this.descripcion}}</p>
@@ -23,12 +19,14 @@
 	</section>
 </section>
 
-<a href="#">	
-	<section id="carrito">
-		<img src="images/carrito.png">
-		<p id="cntd_elem"></p>
+
+<a href="/carrito">
+	<section id="carrito" onclick="goto_carrito()">
+	<img id="carro" src="images/carrito.png">
+	<p id="cntd_elem"></p>
 	</section>
 </a>
+
 
 <section id="footer">
 

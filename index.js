@@ -1,6 +1,20 @@
 const express = require("express")
 const app = express()
 
+//configuración socket
+const server = require('http').createServer(app);
+const io = require('socket.io')(server);
+
+lista = null
+io.on('connection',cliente=>{
+	cliente.on('carrito',data=>{
+		lista=data
+	})
+})
+
+
+
+
 // llamando hbs y configurando el motor de vistas
 const hbs = require('hbs')
 
@@ -103,6 +117,21 @@ app.get("/",(req,res)=>{
 	})
 })
 
+
+
+app.get("/carrito",urlencoder,(req,res)=>{
+
+	if(lista!=null){
+		info_productos = productos_carrito(lista)
+		res.render("carrito",{
+			info_productos
+		})
+	}else{
+		console.log("data es null")
+		res.redirect('/')
+	}
+})
+
 app.get("/adm",urlencoder,(req,res)=>{
 	if(req.session.user!=null){
 		console.log('no null')
@@ -127,5 +156,5 @@ app.post("/logout",urlencoder,(req,res)=>{
 	req.session = null
 	res.redirect("adm")
 })
-app.listen(3000)
+server.listen(3000)
 console.log("localhost:3000")

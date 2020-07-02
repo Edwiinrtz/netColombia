@@ -1,0 +1,45 @@
+#informacion_compra{
+	width: 80%;
+	border: .5px solid black;
+	position: relative;
+	top:20%;
+	left: 1%;
+}
+
+#producto_info{
+	height: 150px;
+	background-color: rgba(226,222,201,.5);
+	margin:.2%;
+	color: black;
+	display:flex;
+}
+
+
+#crr_imgPro{
+	width: 15%;
+	height: 100%;
+	background-color:white;
+	position: relative;
+	top: 0;
+}
+#informacion{
+	width: 75%;
+	margin-left: .2%;
+}
+#pdrt_precio{
+	color: orange;
+}
+#quitar{
+	position: absolute;
+	left: 98%;
+	display:fixed;
+	color:rgab(0,0,0,.1);
+}
+#quitar:hover{
+	cursor: pointer;
+}
+
+#meto_pago{
+	width: 15%;
+	margin-left: 2%;
+}

@@ -1,0 +1,26 @@
+{{>header}}
+
+<section style="display:flex;">
+
+<section id="informacion_compra">
+	{{#each info_productos}}
+		<section id="producto_info">
+			
+			<img id="crr_imgPro" src="https://res.cloudinary.com/dk2ghb1pg/image/upload/v1535301733/bxoyfrkj4zwtbsewcryf.png">
+			<section id="informacion" class="info">
+				<h2>{{this.nombre}}</h2>
+				<h6>Duracion: {{this.duracion}} días</h6>
+				<p>{{this.descripcion}}</p>
+				<h2 id="pdrt_precio">{{this.precio}}</h2>
+			</section>
+			<a href="/carrito" id="quitar" onclick="quitar('{{this._id}}')">X</a>
+		</section>
+	{{/each}}
+</section>
+<section id="meto_pago">
+<h3>Metodos de pago</h3>
+</section>
+
+</section>
+<a href="/">volver a la tienda</a>
+{{>footer}}
