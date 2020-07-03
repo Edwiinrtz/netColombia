@@ -87,23 +87,7 @@ iniciar=(req,res,datos)=>{
 	})	
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//Redireccionamiento Usuario
 app.get("/",(req,res)=>{
 	query = productos()
 	query.exec((err,success)=>{
@@ -116,9 +100,6 @@ app.get("/",(req,res)=>{
 		}
 	})
 })
-
-
-
 app.get("/carrito",urlencoder,(req,res)=>{
 
 	if(lista!=null){
@@ -131,7 +112,15 @@ app.get("/carrito",urlencoder,(req,res)=>{
 		res.redirect('/')
 	}
 })
+app.post("/checkout",urlencoder,(req,res)=>{
+	checkout = require('./apis/nequi/checkout_nequi')
+	var numero = req.body.numero;
+	valor=0
+	resultado = checkout.enviar_notificacion(numero,valor)
+	res.redirect("/")
+})
 
+//redireccionamiento Administrador
 app.get("/adm",urlencoder,(req,res)=>{
 	if(req.session.user!=null){
 		console.log('no null')
