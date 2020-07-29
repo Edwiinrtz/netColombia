@@ -1,4 +1,6 @@
+//se escibren las credenciales con las que se quiere accedeer para enviar el correo electronico
+
 module.exports={
-	CORREO:'privinet1@gmail.com',
-	PASS:'315.833.edwin'
+	CORREO:'',
+	PASS:''
 }
