@@ -5,10 +5,17 @@ const app = express()
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);
 
+
+//checkout
+checkout = require('./apis/nequi/checkout_nequi')
+
 lista = null
 io.on('connection',cliente=>{
 	cliente.on('carrito',data=>{
 		lista=data
+	})
+	cliente.on('realizar_compra',(informacion)=>{
+		generar_factura(informacion)
 	})
 })
 
@@ -86,7 +93,6 @@ iniciar=(req,res,datos)=>{
 		}
 	})	
 }
-
 //Redireccionamiento Usuario
 app.get("/",(req,res)=>{
 	query = productos()
@@ -100,24 +106,24 @@ app.get("/",(req,res)=>{
 		}
 	})
 })
-app.get("/carrito",urlencoder,(req,res)=>{
+app.get("/carrito",urlencoder,async (req,res)=>{
 
 	if(lista!=null){
-		info_productos = productos_carrito(lista)
+		info_productos= await productos_carrito(lista)
 		res.render("carrito",{
 			info_productos
 		})
+		console.log(info_productos)
 	}else{
 		console.log("data es null")
 		res.redirect('/')
 	}
 })
-app.post("/checkout",urlencoder,(req,res)=>{
-	checkout = require('./apis/nequi/checkout_nequi')
-	var numero = req.body.numero;
-	valor=0
-	resultado = checkout.enviar_notificacion(numero,valor)
-	res.redirect("/")
+app.get("/checkout",(req,res)=>{
+	//
+	//resultado = checkout.enviar_notificacion(numero,valor)
+	//res.redirect("/")
+	res.render('checkout')
 })
 
 //redireccionamiento Administrador

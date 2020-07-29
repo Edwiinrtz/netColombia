@@ -59,3 +59,69 @@
 	color: orange;
 
 }
+
+/*@media (max-width: 1024px){
+.pdrt{
+	width: 25%;
+}
+#carrito{
+	position: fixed;
+	top: 90%;
+	left: 90%;
+	width:5%;
+}
+
+#carro{
+	width: 100%;
+}
+#carrito p{
+	position: fixed;
+	top: 88.5%;
+	left: 95%;
+	color: orange;
+}
+}*/
+
+/*@media (max-width: 1024px){
+.pdrt{
+	width: 35%;
+}
+#carrito{
+	position: fixed;
+	top: 85%;
+	left: 85%;
+	width:7%;
+}
+
+#carro{
+	width: 100%;
+}
+#carrito p{
+	position: fixed;
+	top: 84.5%;
+	left: 92%;
+	color: orange;
+}
+}*/
+
+@media (max-width: 1024px){
+.pdrt{
+	width: 80%;
+}
+#carrito{
+	position: fixed;
+	top: 85%;
+	left: 80%;
+	width:8%;
+}
+
+#carro{
+	width: 100%;
+}
+#carrito p{
+	position: fixed;
+	top: 84.5%;
+	left: 88%;
+	color: orange;
+}
+}

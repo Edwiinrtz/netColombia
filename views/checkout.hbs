@@ -1,0 +1,10 @@
+{{>header}}
+	<h1>Solicitud en procesamiento</h1>
+	<p>Se enviará a tu correo la notificación y el estado de tu compra, muchas gracias. </p>
+
+	<script type="text/javascript">
+		localStorage.removeItem('carrito')
+		localStorage.removeItem('total')
+		setTimeout("location.href='/'",2500);
+	</script>
+{{>footer}}

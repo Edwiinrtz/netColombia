@@ -13,6 +13,16 @@ anadir_carrito=(ident)=>{
 	incrementar_carrito()
 }
 
+total = 0
+calcular_total=()=>{
+	valor=document.getElementById('valores');
+	valores = valor.value.split(',');
+	valores.forEach(x=>{
+		total+=parseInt(x)
+	})
+	localStorage.setItem("total",total)
+	document.getElementById('total').value = total;
+}
 
 incrementar_carrito=()=>{
 	elemnt = document.getElementById('cntd_elem')
@@ -49,4 +59,11 @@ quitar=(id)=>{
 	}
 }
 
-incrementar_carrito()
+realizar_compra=()=>{
+	server.emit("realizar_compra",{
+		productos:localStorage.getItem('carrito'),
+		precio:localStorage.getItem('total'),
+		correo:document.getElementById('correo_cliente').value,
+		numeroCuenta:document.getElementById('numeroCuenta').value
+	})
+}

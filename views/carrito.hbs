@@ -3,7 +3,7 @@
 <section style="display:flex;">
 
 <section id="informacion_compra">
-	{{#each info_productos}}
+	{{#each info_productos.productos_compra}}
 		<section id="producto_info">
 			
 			<img id="crr_imgPro" src="https://res.cloudinary.com/dk2ghb1pg/image/upload/v1535301733/bxoyfrkj4zwtbsewcryf.png">
@@ -20,15 +20,25 @@
 <section id="meto_pago">
 
 <h3>Metodos de pago</h3>
-<button>NEQUI</button>
-<form action="checkout" method="post" style="display:inline-block;">
-	<input type="text" name="numero" placeholder="Número de cuenta">
-	<input type="submit" name="" value="Realizar compra">
+<button onclick="document.getElementById('frm_nequi').style.display='inline-block'">NEQUI</button>
+<form action="checkout"  method="post" id="frm_nequi"style="display:none;">
+	
+	<input type="email" name="email" id="correo_cliente" placeholder="ejemplo@correo.com" autocomplete="off">
+	<input type="text" name="numero" placeholder="Número de cuenta"id="numeroCuenta">
+	<input  id="total" type="text" name="total" value="{{info_productos.total}}" readonly="">
+	<a href="/checkout"><input type="button" onclick="realizar_compra()" name="" value="Realizar compra"></a>
 </form>
 
 
 </section>
 
 </section>
+<input type="hidden" id="valores" value="{{info_productos.total}}">
+<h2 ></h2>
+
 <a href="/">volver a la tienda</a>
 {{>footer}}
+
+<script type="text/javascript">
+calcular_total();
+</script>
